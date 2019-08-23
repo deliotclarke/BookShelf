@@ -21,6 +21,9 @@ namespace BookShelf.Models
         [Required]
         public int AuthorId { get; set; }
         [Required]
-        public int ApplicationUserId { get; set; }
+        public string UserId { get; set; }
+
+        public Author Author { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }
