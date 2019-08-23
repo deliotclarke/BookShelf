@@ -9,6 +9,8 @@ namespace BookShelf.Models
     public class Book
     {
         [Required]
+        public int? Id { get; set; }
+        [Required]
         [MinLength(10)]
         [MaxLength(13)]
         public int ISBN { get; set; }
