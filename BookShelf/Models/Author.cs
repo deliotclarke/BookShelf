@@ -8,8 +8,8 @@ namespace BookShelf.Models
 {
     public class Author
     {
-        [Required]
-        public int? Id { get; set; }
+        [Key]
+        public int Id { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]
@@ -23,10 +23,11 @@ namespace BookShelf.Models
 
         public string Penname { get; set; }
         public string PreferredGenre { get; set; }
-        public List<Book> Books { get; set; }
+        // virtual allows the framework to not automatically pull in Books on a join
+        // unless asked for
+        public virtual ICollection<Book> Books { get; set; }
 
-        [Required]
-        public string UserId { get; set; }
-        public ApplicationUser User { get; set; }
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }
