@@ -40,6 +40,9 @@ namespace BookShelf.Areas.Identity.Pages.Account
 
         public class InputModel
         {
+
+            // ADD FIRSTNAME LASTNAME HERE
+
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
@@ -67,7 +70,13 @@ namespace BookShelf.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser {
+
+                    // ADD FIRST NAME LAST NAME HERE ALSO
+                    UserName = Input.Email,
+                    Email = Input.Email
+                };
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
